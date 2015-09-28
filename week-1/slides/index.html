@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to JS</title>
+
+		<meta name="description" content="An introduction to JavaScript at the Open Window.">
+		<meta name="author" content="Willem Labu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Intro to JS</h1>
+					<h3>Week 1</h3>
+					<p>
+						<small><a href="http://pwl.co.za">Willem Labu</a> / <a href="http://twitter.com/willemlabu">@willemlabu</a></small>
+					</p>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>This class</h2>
+						<ul>
+							<li>What is JavaScript?</li>
+							<li>Where does it fit in?</li>
+							<li>What you need to run JS</li>
+							<li>Basics</li>
+							<li>Git &amp; Github.com</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Coming up</h2>
+						<ul>
+							<li>Scope &amp; Closure</li>
+							<li>jQuery</li>
+							<li>AJAX</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Then, the deep stuff</h2>
+						<ul>
+							<li>React</li>
+							<li>Angular</li>
+							<li>Server Side JavaScript</li>
+							<li>Development Processes with NodeJS</li>
+						</ul>
+					</section>
+				
+				</section>
+
+				<section>
+					
+					<section>
+						<h1>What is JavaScript?</h1>
+					</section>
+
+					<section>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Mozilla's JS page</a>
+						<hr />
+						<p>An interpreted, object-oriented scripting language commonly most commonly used in browsers.</p>
+						<p>It is a prototype-based, dynamic, and supports object-oriented, imperative, and functional programming styles.</p>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Things you need</h2>
+						<ul>
+							<li>Browser</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Browsers</h2>
+						<ul>
+							<li>Chrome</li>
+							<li>Firefox</li>
+							<li>Safari</li>
+							<li>MS Edge</li>
+							<li>MS IE</li>
+							<li>Tor fork of FF</li>
+							<li>SeaMonkey</li>
+							<li>Opera</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Let's go!</h1>
+						<code>the basics of JS</code>
+					</section>
+
+					<section>
+						<h3>Basics</h3>
+						<p>JavaScript is case-sensitive.</p>
+						<p>Code instructions are called <em>statements</em>.</p>
+						<p>Statements and expressions should be separated with semi-colons (;).</p>
+					</section>
+
+					<section>
+						<h2>Comments</h2>
+<pre><code class="javascript">
+  // This is a single line comment
+
+  /* This is a multi-line comment, that is sometimes
+     also referred to as a comment-block.
+  */
+
+  /* You can't, however, /* nest comments */ SyntaxError */
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Variables</h2>
+						<p>Variables define 'identifiers' - the name of the variable.</p>
+						<p>A JavaScript identifier must start with <strong>a letter</strong>, <strong>underscore</strong> (_), or <strong>dollar sign</strong> ($)</p>
+					</section>
+
+					<section>
+						<h2>Declarations</h2>
+<pre><code class="javascript">
+  var myVariable;
+
+  var $the_Answer = 42;
+
+  _name = "Willem";
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Declarations</h2>
+<pre><code class="javascript">
+  var myVariable; // local, and = `undefined`
+
+  let $the_Answer = 42; // local + block, and = 42
+
+  _name = "Willem"; // global, and = 'Willem'
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Scope</h2>
+<pre><code class="javascript">
+  var $the_Answer = 42;
+  
+  if ($the_Answer == 42) {
+    let movie = "Hitchhiker's Guide to the Galaxy";
+  }
+
+  console.log(movie); // ReferenceError
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Data types</h2>
+						<ul>
+							<li>
+
+								Primitives
+
+								<ol>
+									<li>Boolean</li>
+									<li>null</li>
+									<li>undefined</li>
+									<li>Number</li>
+									<li>String</li>
+									<li>Symbol *</li>
+								</ol>
+
+							</li>
+							<li>Object</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Functions</h2>
+						<p>The other fundamental <em>thing</em> in JS is the <code>function</code> declaration.</p>
+						<p>Think of this as a block of procedures to be executed on variables.</p>
+					</section>
+
+					<section>
+						<h2>Functions</h2>
+<pre><code class="javascript">
+  function () {
+    // do great things!
+  }
+
+</code></pre>
+						<p>More on this later.</p>
+					</section>
+
+					<section>
+						<h2>Dynamic Types</h2>
+<pre><code class="javascript">
+  var name = "Willem";
+ 
+  // ...later...
+
+  name = 1; 
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Careful, please!</h2>
+<pre><code class="javascript">
+  "37" - 7 // 30
+  "37" + 7 // "377"
+
+  --
+
+  // Convert strings to numbers with a `+`
+
+  "1.1" + "1.1" = "1.11.1"
+  (+"1.1") + (+"1.1") = 2.2
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Literals</h2>
+						<ul>
+							<li>Array</li>
+							<li>Boolean</li>
+							<li>Float (Floating Point)</li>
+							<li>Integer</li>
+							<li>Object</li>
+							<li>String</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Basic Control</h1>
+					</section>
+
+					<section>
+						<h2>Conditional statements</h2>
+<pre><code class="javascript">
+  if (condition) {
+    statement_1;
+  } else {
+    statement_2;
+  }
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2><code>falsey</code> values</h2>
+						<ul>
+							<li>false</li>
+							<li>undefined</li>
+							<li>null</li>
+							<li>0</li>
+							<li>NaN</li>
+							<li>the empty string ("")</li>
+						</ul>
+						<p>Anything else will parse as <code>truthy</code></p>
+					</section>
+
+					<section>
+						<h2>Switch statements</h2>
+<pre><code class="javascript">
+  switch (expression) {
+    case label_1:
+      statements_1
+      break;
+    case label_2:
+      statements_2
+      break;
+    
+    // ...
+    
+    default:
+      statements_default;
+      break;
+  }
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>for loop</h2>
+<pre><code class="javascript">
+  var step;
+  for (step = 0; step &lt; 5; step++) {
+    // Runs 5 times, with values of step 0 through 4.
+    console.log('I\'ve taken ' + (step + 1) + ' steps!');
+  }
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>while loop</h2>
+<pre><code class="javascript">
+  while (variable > limit) {
+    statements
+  }
+
+</code></pre>
+						<p>Careful not to loop <em>infinitely!</em></p>
+					</section>
+
+					<section>
+						<h2>for...in loops</h2>
+<pre><code class="javascript">
+  for (variable in object) {
+    statements
+  }
+
+</code></pre>
+					</section>
+
+				</section>
+
+				<section>
+					
+					<section>
+						<h1>Functions</h1>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">MDN Guide	</a>
+					</section>
+
+					<section>
+						<h2>Structure</h2>
+						<ul>
+							<li>The name of the function.</li>
+							<li>A list of arguments to the function, enclosed in parentheses and separated by commas.</li>
+							<li>The JavaScript statements that define the function, enclosed in curly brackets, { }.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Warning!</h2>
+						<p>There are a few <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#Predefined_functions">predefined functions</a> in JavaScript</p>
+						<p>Don't call your functions any of those names, but more than that, know what they are so you can use them.</p>
+					</section>
+
+					<section>
+						<h2>Basics</h2>
+<pre><code class="javascript">
+  function square(number) {
+    return number * number;
+  }
+
+</code></pre>
+						<ul>
+							<li>Parameter</li>
+							<li>Operator</li>
+							<li>Return</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Parameter value</h2>
+<pre><code class="javascript">
+  function square(number) {
+    return number * number;
+  }
+
+  var $the_Answer = 42;
+
+  square($the_Answer);
+
+  console.log($the_Answer); // This is still 42!
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Anonymous Functions</h2>
+<pre><code class="javascript">
+  var square = function (number) {
+    return number * number;
+  }
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>IIFE</h2>
+						<p>Immediately-Invoked Function Expression</p>
+<pre><code class="javascript">
+  (function(param){
+    // do stuff
+  })(param);
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Closure and Scope</h2>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Git</h1>
+						<h3><em>Super</em>&nbsp; Easy Version Control</h3>
+						<p><small>Why you shouldn't be scared of your console</small></p>
+					</section>
+
+					<section>
+						<h2>What is Git?</h2>
+						<p>It's a Version Control System.</p>
+						<p><b>Never lose work again!</b> Save <em>every</em> file, and <em>every</em> step along the way, of your <em>entire</em> project.</p>
+						<p>It allows you to work with other people <b>on the same code</b>, without overwriting each other's work.</p>
+					</section>
+
+					<section>
+						<h2>How does Git work?</h2>
+						<p>There are three (conceptual) areas in any Git project:</p>
+						<ul>
+							<li class="fragment">Repository</li>
+							<li class="fragment">Working Directory</li>
+							<li class="fragment">Staging Area</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="http://git-scm.com/book/en/v2/book/01-introduction/images/areas.png" />
+					</section>
+
+					<section>
+						<h3>The 4 Basics of Git</h3>
+						<ol>
+							<li class="fragment">pull</li>
+							<li class="fragment">add</li>
+							<li class="fragment">commit</li>
+							<li class="fragment">push</li>
+						</ol>
+					</section>
+
+				</section>
+
+				<section>
+					
+					<h1>How To Git like a pro</h1>
+
+					<p>Repo URL: <a href="https://github.com/WillemLabu/intro-to-html" target="_blank">https://github.com/WillemLabu/intro-to-html</a></p>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Homework</h1>
+					</section>
+
+					<section>
+						<h3>Task 1</h3>
+						<p>Create a github profile.</p>
+						<p>Fork this repo.</p>
+						<p>Clone the fork to your machine.</p>
+					</section>
+
+					<section>
+						<h3>Task 2</h3>
+						<p>Complete the task in the <code>homework</code> directory.</p>
+					</section>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
