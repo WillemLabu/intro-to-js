@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to JS</title>
+
+		<meta name="description" content="An introduction to JavaScript at the Open Window.">
+		<meta name="author" content="Willem Labu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Intro to JS</h1>
+					<h3>Week 2</h3>
+					<p>
+						<small><a href="http://pwl.co.za">Willem Labu</a> / <a href="http://twitter.com/willemlabu">@willemlabu</a></small>
+					</p>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Last time</h2>
+						<ul>
+							<li>What is JavaScript?</li>
+							<li>Where does it fit in?</li>
+							<li>What you need to run JS</li>
+							<li>Basics</li>
+							<li>LESS</li>
+							<li>Scope &amp; Closure</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>This class</h2>
+						<ul>
+							<li>jQuery</li>
+							<li>AJAX</li>
+							<li>APIs</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Then, the deep stuff</h2>
+						<ul>
+							<li>React</li>
+							<li>Angular</li>
+							<li>Server Side JavaScript</li>
+							<li>Development Processes with NodeJS</li>
+						</ul>
+					</section>
+				
+				</section>
+
+				<section>
+					
+					<section>
+						<h1>What is jQuery?</h1>
+					</section>
+
+					<section>
+						<a href="http://jquery.com/" target="_blank">jQuery</a> - write less, do more
+						<hr />
+						<p>A JS library, used to target and manipulate the DOM, event handling, AJAX, and animation.</p>
+					</section>
+
+					<section>
+						<h3>Lightweight</h3>
+						<p>32kb - minified and gzipped</p>
+					</section>
+
+					<section>
+						<h3>CSS3 Compliant</h3>
+						<p>All CSS3 selectors work</p>
+					</section>
+
+					<section>
+						<h3>Cross-Browser</h3>
+						<p>Yay, IE! <em>*sigh*</em></p>
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Jumping straight in</h2>
+				</section>
+
+				<section>
+
+					<section>
+						<h3>DOM targeting &amp; manipulation</h3>
+					</section>
+
+					<section>
+<pre><code class="html">
+  &lt;div class="container"&gt;
+
+    &lt;button&gt;I'm a button!&lt;/button&gt;
+
+  &lt;/div&gt;
+
+  &lt;button&gt;I'm another button!&lt;/button&gt;
+
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="javascript">
+  $('button').html('Next'); // This targets *all* 'button' elements
+
+</code></pre>
+
+<pre class="fragment"><code class="html">
+  &lt;div class="container"&gt;
+
+    &lt;button&gt;Next&lt;/button&gt;
+
+  &lt;/div&gt;
+
+  &lt;button&gt;Next&lt;/button&gt;
+
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="javascript">
+  // This targets 'button' elements within '.container'
+  $('.container button').html('Next');
+  //     ^ this is just CSS
+
+</code></pre>
+
+<pre class="fragment"><code class="html">
+  &lt;div class="container"&gt;
+
+    &lt;button&gt;Next&lt;/button&gt;
+
+  &lt;/div&gt;
+
+  &lt;button&gt;I'm another button!&lt;/button&gt;
+
+</code></pre>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Event handling</h3>
+					</section>
+
+					<section>
+<pre><code class="html">
+  &lt;div class="container"&gt;
+    &lt;button&gt;Show&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div id="modal-box" style="display: none"&gt;
+    I'm a modal, perhaps..
+  &lt;/div&gt;
+
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="javascript">
+  // Again, this targets 'button' elements within '.container'
+  $('.container button').on('click', function() {
+    //           _______________________^
+    //          |
+    // This function is run "on the click event"
+    //  of all the matching ".container button" elements
+
+    $('#modal-box').show();
+
+  });
+
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="html">
+  &lt;div class="container"&gt;
+    &lt;button&gt;Show&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div id="modal-box" class="hidden"&gt;
+    I'm a modal, perhaps..
+  &lt;/div&gt;
+
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="javascript">
+  $('.container button').on('click', function() {
+
+    $('#modal-box').removeClass('hidden');
+
+  });
+
+</code></pre>
+					</section>
+
+					<section>
+						<h2>jQuery API</h2>
+						<hr />
+						<a href="http://api.jquery.com/" target="_blank">jQuery Documentation</a>
+					</section>
+					
+				</section>
+
+				<section>
+				
+					<section>
+						<h2>AJAX</h2>
+						<p><b>A</b>synchronous <b>J</b>avaScript <b>a</b>nd <b>X</b>ML</p>
+					</section>
+
+					<section>
+						<h3>jQuery.ajax() API</h3>
+						<p><a href="http://api.jquery.com/jquery.ajax/" target="_blank">Documentation</a></p>
+					</section>
+
+					<section>
+						<h3>Demo</h3>
+					</section>
+				
+				</section>
+
+				<section>
+					
+					<section>
+						<h3><u>A</u>pplication <u>P</u>rogram <u>I</u>nterfaces</h3>
+						<p>APIs</p>
+					</section>
+
+					<section>
+						<h3>What are they?</h3>
+					</section>
+
+					<section>
+						<p>A set of routines, protocols, and tools to help you build software</p>
+					</section>
+
+					<section>
+						<p>jQuery's API</p>
+						<p>vs</p>
+						<p>API Endpoints</p>
+					</section>
+
+					<section>
+						<h3>jQuery's API</h3>
+						<p class="fragment">Built into the library</p>
+						<p class="fragment">Accessed through the '$' method</p>
+						<p class="fragment">Local to the project you build</p>
+						<p class="fragment">Front-end</p>
+					</section>
+
+					<section>
+						<h3>API Endpoints</h3>
+						<p class="fragment">Accessed via URLs</p>
+						<p class="fragment">Public</p>
+						<p class="fragment">Auth-controlled</p>
+						<p class="fragment">Back-end</p>
+						<p class="fragment">Usually spits out JSON / XML</p>
+					</section>
+
+					<section>
+						<h3>WordPress Posts</h3>
+						<a href="http://localhost/clean-wordpress/wp-json/posts">Posts API</a>
+						<p class="fragment">Back-end</p>
+						<p class="fragment">Gets all the posts in the WP database</p>
+						<p class="fragment">JSON</p>
+					</section>
+
+					<section>
+						<p>So, how do we "GET" these posts so we can use them?</p>
+					</section>
+
+					<section>
+						<h3>Demo</h3>
+					</section>
+
+				</section>
+				
+				<section>
+
+					<section>
+						<h1>Homework</h1>
+					</section>
+
+					<section>
+						<h3>Local server</h3>
+						<p>Set up a local server</p>
+						<p>Install WordPress</p>
+						<p>Install WP REST API Plugin</p>
+					</section>
+
+					<section>
+						<h3>Front end with jQuery</h3>
+						<p>Build a HTML5 Boilerplate project that pulls in the posts from your WordPress database.</p>
+						<p><b>BONUS</b>: style the front end nicely using LESS</p>
+					</section>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
