@@ -1014,13 +1014,26 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
+a.plugin {
+  display: block;
+  height: 200px;
+  background: url(http://ps.w.org/rest-api/assets/banner-772x250.jpg?rev=1202542);
+  background-size: contain;
+  margin-bottom: 20px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #ccc;
+}
+.plugin:hover {
+  box-shadow: 0 0 0 4px #aaa;
+}
 </style><title>homework</title></head><body><article class="markdown-body"><h1 id="homework-week-2"><a name="user-content-homework-week-2" href="#homework-week-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Homework - Week 2</h1>
 <p>Set up a <code>localhost</code> using an opensource project like XAMPP.</p>
 <p>Create an empty database using PHPMyAdmin.</p>
 <p>Install WordPress in your server root.</p>
-<p>Install the WP REST API plugin in WordPress.</p>
+<p>Install the following plugin in WordPress.</p>
+<a href="http://wp-api.org/" target="_blank" class="plugin"></a>
 <p>Test to make sure you can see the posts by browsing to:</p>
-<blockquote>http://localhost/{your-wordpress-directory-name}/wp-json/posts</blockquote>
+<blockquote>http://localhost/{your-wordpress-directory-name}/wp-json/wp/v2/posts</blockquote>
 <p>Once that's done, continue to the following:</p>
 <hr />
 <p>Create a new HTML5 Boilerplate project in your server root.</p>

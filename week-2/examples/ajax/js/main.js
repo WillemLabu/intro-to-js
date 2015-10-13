@@ -1,41 +1,39 @@
 
-
+/**
+ *	This file loads content from a different
+ *	file and plonks them on the page.
+ */ 
 
 
 $('document').ready(function(){
 
 
 	$.get('content/featured.html', function(data){
-
 		$('#wrap').html(data);
-
 	})
 	.fail(function() {
 		console.warn('Something went wrong!');
 	});
 
-	// $.ajax({
+	/*
 
-	// type: 'GET',
+	The code above is (functionally) the exact same thing as below:
 
-	// 	url: 'content/featured.html',
+	$.ajax({
+		type: 'GET',
+		url: 'content/featured.html',
+		success: function (data) {
+			console.log('Got the content!');
 
-	// 	success: function (data) {
+			// Put the data into the container!
+			$('#wrap').html(data);
 
-	// 		console.log('Got the content!');
+		},
+		error: function () {
+			console.warn('Something went wrong!');
+		}
 
-	// 		// Put the data into the container!
-	// 		$('#wrap').html(data);
-
-	// 	},
-
-	// 	error: function () {
-
-	// 		console.warn('Something went wrong!');
-
-	// 	}
-
-	// });
-
+	});
+	*/
 
 });
