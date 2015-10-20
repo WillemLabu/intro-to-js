@@ -1,0 +1,35 @@
+Step 1
+-----------
+Username: valid email
+Password: at least 7 chars
+
+
+Step 2:
+-----------
+Validate (Front end)
+
+
+Step 3:
+-----------
+Submit
+
+
+#### FAKE ###
+#	# Step 4:
+#	-----------
+#	Validate (Back end)
+#
+#
+#	# Step 5:
+#	-----------
+#	Response
+#	- Success
+#	- Error
+#### FAKE ###
+
+
+Step 6:
+-----------
+Handle Response in UI
+- Success
+- Error
