@@ -1,0 +1,22 @@
+{
+  "name": "week-5",
+  "private": true,
+  "dependencies": {
+    "modernizr": "2.8.3",
+    "bootstrap": "~3.3.5",
+    "animate.css": "~3.4.0",
+    "bootstrap-material-design": "~0.3.0",
+    "blueimp-file-upload": "blueimp-file-upload-node#~9.11.2",
+    "bootstrap-datepicker": "~1.5.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js",
+        "dist/fonts/*"
+      ]
+    }
+  }
+}
